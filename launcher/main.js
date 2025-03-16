@@ -53,3 +53,16 @@ ipcMain.on('launch-pcsx2', () => {
         console.log(`PCSX2 started: ${stdout}`);
     });
 });
+
+ipcMain.on('open-settings', () => {
+  const settingsWindow = new BrowserWindow({
+      width: 500,
+      height: 400,
+      webPreferences: {
+          nodeIntegration: true
+      }
+  });
+
+  settingsWindow.loadFile('settings.html'); // Create this file next
+});
+

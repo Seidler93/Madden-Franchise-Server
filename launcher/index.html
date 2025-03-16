@@ -10,13 +10,11 @@
     </style>
 </head>
 <body>
-    <h1>Madden Franchise Launcher</h1>
-    <button onclick="launchRPCS3()">Launch Madden on RPCS3</button>
-    <button onclick="launchPCSX2()">Launch Madden on PCSX2</button>
-    <script>
-      function launchRPCS3() { window.electronAPI.launchRPCS3(); }
-      function launchPCSX2() { window.electronAPI.launchPCSX2(); }
-  </script>
-  
+  <h1>Madden Franchise Launcher</h1>
+  <button onclick="launchRPCS3()">Launch Madden on RPCS3</button>
+  <button onclick="launchPCSX2()">Launch Madden on PCSX2</button>
+  <button onclick="electronAPI.openSettings()">Controller Settings</button>
+
+  <script src="controls.js"></script>
 </body>
 </html>

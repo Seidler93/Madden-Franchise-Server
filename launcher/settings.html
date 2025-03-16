@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controller Mapping</title>
+    <script>
+        let mapping = {};
+
+        function saveMapping() {
+            localStorage.setItem("controllerMapping", JSON.stringify(mapping));
+            alert("Controller mapping saved!");
+        }
+
+        function detectButton(event) {
+            let gamepads = navigator.getGamepads();
+            if (gamepads[0]) {
+                let gp = gamepads[0];
+                for (let i = 0; i < gp.buttons.length; i++) {
+                    if (gp.buttons[i].pressed) {
+                        mapping[event.target.id] = i;
+                        event.target.innerText = "Mapped to: Button " + i;
+                    }
+                }
+            }
+        }
+
+        window.onload = function () {
+            document.querySelectorAll("button").forEach(btn => {
+                btn.addEventListener("click", detectButton);
+            });
+        };
+    </script>
+</head>
+<body>
+    <h2>Map Your Controller</h2>
+    <button id="start">Map Start</button>
+    <button id="select">Map Select</button>
+    <button id="menu">Map Menu Overlay</button>
+    <br>
+    <button onclick="saveMapping()">Save Mapping</button>
+</body>
+</html>

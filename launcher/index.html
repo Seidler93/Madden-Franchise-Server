@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madden Franchise Launcher</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        button { padding: 10px 20px; margin: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Madden Franchise Launcher</h1>
+    <button onclick="launchRPCS3()">Launch Madden on RPCS3</button>
+    <button onclick="launchPCSX2()">Launch Madden on PCSX2</button>
+    <script>
+        const { ipcRenderer } = require('electron');
+        
+        function launchRPCS3() { ipcRenderer.send('launch-rpcs3'); }
+        function launchPCSX2() { ipcRenderer.send('launch-pcsx2'); }
+    </script>
+</body>
+</html>

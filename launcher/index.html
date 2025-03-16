@@ -14,10 +14,9 @@
     <button onclick="launchRPCS3()">Launch Madden on RPCS3</button>
     <button onclick="launchPCSX2()">Launch Madden on PCSX2</button>
     <script>
-        const { ipcRenderer } = require('electron');
-        
-        function launchRPCS3() { ipcRenderer.send('launch-rpcs3'); }
-        function launchPCSX2() { ipcRenderer.send('launch-pcsx2'); }
-    </script>
+      function launchRPCS3() { window.electronAPI.launchRPCS3(); }
+      function launchPCSX2() { window.electronAPI.launchPCSX2(); }
+  </script>
+  
 </body>
 </html>
